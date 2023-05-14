@@ -1,6 +1,7 @@
 package com.cayena.storeproducts.service.create_product_service;
 
 import com.cayena.storeproducts.dto.product.CreateProductRequestDto;
+import com.cayena.storeproducts.dto.product.CreateProductResponseDto;
 import com.cayena.storeproducts.entity.Product;
 import com.cayena.storeproducts.entity.Supplier;
 import com.cayena.storeproducts.exception.GenericException;
@@ -34,7 +35,7 @@ public class CreateProductService {
         this.productMapper = productMapper;
     }
 
-    public void createProduct(CreateProductRequestDto createProductRequestDto) {
+    public CreateProductResponseDto createProduct(CreateProductRequestDto createProductRequestDto) {
         validateIncorrectProductFields(createProductRequestDto.getName(),
                 createProductRequestDto.getQuantityInStock(),
                 createProductRequestDto.getUnitPrice(),
@@ -44,7 +45,7 @@ public class CreateProductService {
         productToCreate.setDateOfCreation(LocalDateTime.now());
         productToCreate.setDateOfLastUpdate(LocalDateTime.now());
 
-        productRepository.save(productToCreate);
+        return productMapper.entityToCreateProductResponseDto(productRepository.save(productToCreate));
     }
 
     private void validateIncorrectProductFields(String name, Integer quantityInStock, Float unitPrice, Long supplierId) {

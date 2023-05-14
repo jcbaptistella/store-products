@@ -2,7 +2,7 @@ package com.cayena.storeproducts.utils;
 
 public class ErrorMessagesUtils {
 
-    public static final String ERROR_MESSAGE_ID_NOT_FOUND = "Produto com id = %s não encontrado";
+    public static final String ERROR_MESSAGE_PRODUCT_ID_NOT_FOUND = "Produto com id = %s não encontrado";
     public static final String ERROR_MESSAGE_DIFFERENT_ID = "O id informado para atualização = %s difere do recebido no objeto para atualizar = %s";
     public static final String ERROR_MESSAGE_QUANTITY_NEGATIVE = "Não é possivel atualizar a quantidade de stock do produto para valores negativo";
     public static final String ERROR_MESSAGE_QUANTITY_NOT_EXISTING = "Quantidade de estoque para o produto não informada";

@@ -15,7 +15,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 import static com.cayena.storeproducts.utils.ErrorMessagesUtils.ERROR_MESSAGE_DIFFERENT_ID;
-import static com.cayena.storeproducts.utils.ErrorMessagesUtils.ERROR_MESSAGE_ID_NOT_FOUND;
+import static com.cayena.storeproducts.utils.ErrorMessagesUtils.ERROR_MESSAGE_PRODUCT_ID_NOT_FOUND;
 import static com.cayena.storeproducts.utils.ErrorMessagesUtils.ERROR_MESSAGE_QUANTITY_NEGATIVE;
 import static com.cayena.storeproducts.utils.ErrorMessagesUtils.ERROR_MESSAGE_QUANTITY_NOT_EXISTING;
 import static java.lang.String.format;
@@ -32,6 +32,16 @@ public class PatchProductQuantityStockService {
     }
 
     public ProductResponseDto patchProductQuantityStock(Long productId, PatchQuantityStockRequestDto patchQuantityStockRequestDto) {
+        Optional<Product> productToUpdate = validateIncorrectProductFields(productId, patchQuantityStockRequestDto);
+
+        handleNewQuantityStock(productToUpdate.get(), patchQuantityStockRequestDto);
+
+        productToUpdate.get().setDateOfLastUpdate(LocalDateTime.now());
+
+        return productMapper.entityToDto(productRepository.save(productToUpdate.get()));
+    }
+
+    private Optional<Product> validateIncorrectProductFields(Long productId, PatchQuantityStockRequestDto patchQuantityStockRequestDto) {
         if (!productId.equals(patchQuantityStockRequestDto.getId())) {
             throw new GenericException(format(ERROR_MESSAGE_DIFFERENT_ID, productId, patchQuantityStockRequestDto.getId()));
         }
@@ -47,27 +57,24 @@ public class PatchProductQuantityStockService {
         Optional<Product> productToUpdate = productRepository.findById(productId);
 
         if (productToUpdate.isEmpty()) {
-            throw new NotFoundException(format(ERROR_MESSAGE_ID_NOT_FOUND, productId));
+            throw new NotFoundException(format(ERROR_MESSAGE_PRODUCT_ID_NOT_FOUND, productId));
         }
 
-        handleNewQuantityStock(productToUpdate.get(), patchQuantityStockRequestDto);
-
-        productToUpdate.get().setDateOfLastUpdate(LocalDateTime.now());
-
-        return productMapper.entityToDto(productRepository.save(productToUpdate.get()));
+        return productToUpdate;
     }
 
     private void handleNewQuantityStock(Product productToUpdate, PatchQuantityStockRequestDto patchQuantityStockRequestDto) {
         int newQuantity = 0;
-
-        if (patchQuantityStockRequestDto.getQuantityStockAction().equals(QuantityStockActionEnum.INCREASE)) {
-            newQuantity = increaseQuantity(productToUpdate, patchQuantityStockRequestDto);
-        } else {
+        if (patchQuantityStockRequestDto.getQuantityStockAction().equals(QuantityStockActionEnum.DECREASE)) {
             newQuantity = decreaseQuantity(productToUpdate, patchQuantityStockRequestDto);
 
             if (newQuantity < 0) {
                 throw new GenericException(ERROR_MESSAGE_QUANTITY_NEGATIVE);
             }
+        }
+
+        if (patchQuantityStockRequestDto.getQuantityStockAction().equals(QuantityStockActionEnum.INCREASE)) {
+            newQuantity = increaseQuantity(productToUpdate, patchQuantityStockRequestDto);
         }
 
         productToUpdate.setQuantityInStock(newQuantity);

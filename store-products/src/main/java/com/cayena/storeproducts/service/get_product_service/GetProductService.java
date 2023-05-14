@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-import static com.cayena.storeproducts.utils.ErrorMessagesUtils.ERROR_MESSAGE_ID_NOT_FOUND;
+import static com.cayena.storeproducts.utils.ErrorMessagesUtils.ERROR_MESSAGE_PRODUCT_ID_NOT_FOUND;
 import static java.lang.String.format;
 
 @Service
@@ -27,7 +27,7 @@ public class GetProductService {
         Optional<Product> product = productRepository.findById(productId);
 
         if (product.isEmpty()) {
-            throw new NotFoundException(format(ERROR_MESSAGE_ID_NOT_FOUND, productId));
+            throw new NotFoundException(format(ERROR_MESSAGE_PRODUCT_ID_NOT_FOUND, productId));
         }
 
         return productMapper.entityToDto(product.get());

@@ -1,6 +1,7 @@
 package com.cayena.storeproducts.controller;
 
 import com.cayena.storeproducts.dto.product.CreateProductRequestDto;
+import com.cayena.storeproducts.dto.product.CreateProductResponseDto;
 import com.cayena.storeproducts.dto.product.PatchProductRequestDto;
 import com.cayena.storeproducts.dto.product.PatchQuantityStockRequestDto;
 import com.cayena.storeproducts.dto.product.ProductResponseDto;
@@ -57,8 +58,8 @@ class ProductController {
 
     @PostMapping("/products")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createProduct(@RequestBody CreateProductRequestDto createProductRequestDto) {
-        createProductService.createProduct(createProductRequestDto);
+    public CreateProductResponseDto createProduct(@RequestBody CreateProductRequestDto createProductRequestDto) {
+        return createProductService.createProduct(createProductRequestDto);
     }
 
     @PatchMapping("/products/{productId}")

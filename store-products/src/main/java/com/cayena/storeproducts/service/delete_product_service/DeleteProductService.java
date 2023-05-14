@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-import static com.cayena.storeproducts.utils.ErrorMessagesUtils.ERROR_MESSAGE_ID_NOT_FOUND;
+import static com.cayena.storeproducts.utils.ErrorMessagesUtils.ERROR_MESSAGE_PRODUCT_ID_NOT_FOUND;
 import static java.lang.String.format;
 
 @Service
@@ -23,7 +23,7 @@ public class DeleteProductService {
         Optional<Product> product = productRepository.findById(productId);
 
         if (product.isEmpty()) {
-            throw new GenericException(format(ERROR_MESSAGE_ID_NOT_FOUND, productId));
+            throw new GenericException(format(ERROR_MESSAGE_PRODUCT_ID_NOT_FOUND, productId));
         }
 
         productRepository.deleteById(productId);

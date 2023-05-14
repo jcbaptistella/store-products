@@ -16,7 +16,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 import static com.cayena.storeproducts.utils.ErrorMessagesUtils.ERROR_MESSAGE_DIFFERENT_ID;
-import static com.cayena.storeproducts.utils.ErrorMessagesUtils.ERROR_MESSAGE_ID_NOT_FOUND;
+import static com.cayena.storeproducts.utils.ErrorMessagesUtils.ERROR_MESSAGE_PRODUCT_ID_NOT_FOUND;
 import static com.cayena.storeproducts.utils.ErrorMessagesUtils.ERROR_MESSAGE_NAME_PRODUCT_NOT_EXISTING;
 import static com.cayena.storeproducts.utils.ErrorMessagesUtils.ERROR_MESSAGE_PRODUCT_EXISTING;
 import static com.cayena.storeproducts.utils.ErrorMessagesUtils.ERROR_MESSAGE_SUPPLIER_ID_NOT_EXISTING;
@@ -38,9 +38,7 @@ public class PatchProductService {
     }
 
     public ProductResponseDto patchProduct(Long productId, PatchProductRequestDto patchProductRequestDto) {
-        validateIncorrectProductFields(productId, patchProductRequestDto.getId(), patchProductRequestDto.getName(), patchProductRequestDto.getUnitPrice(), patchProductRequestDto.getSupplierId());
-
-        Optional<Product> productToUpdate = productRepository.findById(productId);
+        Optional<Product> productToUpdate = validateIncorrectProductFields(productId, patchProductRequestDto.getId(), patchProductRequestDto.getName(), patchProductRequestDto.getUnitPrice(), patchProductRequestDto.getSupplierId());
 
         handleValuesProduct(productToUpdate, patchProductRequestDto);
 
@@ -59,7 +57,7 @@ public class PatchProductService {
         productToUpdate.get().setSupplier(newSupplier.get());
     }
 
-    private void validateIncorrectProductFields(Long productId, Long productIdRequest, String name, Float unitPrice, Long supplierId) {
+    private Optional<Product> validateIncorrectProductFields(Long productId, Long productIdRequest, String name, Float unitPrice, Long supplierId) {
         if (!productId.equals(productIdRequest)) {
             throw new GenericException(format(ERROR_MESSAGE_DIFFERENT_ID, productId, productIdRequest));
         }
@@ -87,13 +85,13 @@ public class PatchProductService {
         Optional<Product> productToUpdate = productRepository.findById(productId);
 
         if (productToUpdate.isEmpty()) {
-            throw new NotFoundException(format(ERROR_MESSAGE_ID_NOT_FOUND, productId));
+            throw new NotFoundException(format(ERROR_MESSAGE_PRODUCT_ID_NOT_FOUND, productId));
         }
 
         if (Objects.isNull(unitPrice)) {
             throw new GenericException(ERROR_MESSAGE_UNIT_PRICE_NOT_EXISTING);
         }
 
-
+        return productToUpdate;
     }
 }
