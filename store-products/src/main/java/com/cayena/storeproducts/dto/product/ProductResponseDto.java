@@ -1,13 +1,15 @@
 package com.cayena.storeproducts.dto.product;
 
+import com.cayena.storeproducts.dto.supplier.SupplierResponseDto;
+
 import java.time.LocalDateTime;
 
 public class ProductResponseDto {
     private Long id;
     private String name;
-    private String quantityInStock;
+    private Integer quantityInStock;
     private Float unitPrice;
-    private Long supplierId;
+    private SupplierResponseDto supplierResponseDto;
     private LocalDateTime dateOfCreation;
     private LocalDateTime dateOfLastUpdate;
 
@@ -27,11 +29,11 @@ public class ProductResponseDto {
         this.name = name;
     }
 
-    public String getQuantityInStock() {
+    public Integer getQuantityInStock() {
         return quantityInStock;
     }
 
-    public void setQuantityInStock(String quantityInStock) {
+    public void setQuantityInStock(Integer quantityInStock) {
         this.quantityInStock = quantityInStock;
     }
 
@@ -43,12 +45,12 @@ public class ProductResponseDto {
         this.unitPrice = unitPrice;
     }
 
-    public Long getSupplierId() {
-        return supplierId;
+    public SupplierResponseDto getSupplierResponseDto() {
+        return supplierResponseDto;
     }
 
-    public void setSupplierId(Long supplierId) {
-        this.supplierId = supplierId;
+    public void setSupplierResponseDto(SupplierResponseDto supplierResponseDto) {
+        this.supplierResponseDto = supplierResponseDto;
     }
 
     public LocalDateTime getDateOfCreation() {
