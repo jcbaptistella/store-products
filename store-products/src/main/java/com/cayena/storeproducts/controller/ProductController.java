@@ -1,8 +1,10 @@
 package com.cayena.storeproducts.controller;
 
-import com.cayena.storeproducts.dto.product.ProductRequestDto;
+import com.cayena.storeproducts.dto.product.CreateProductRequestDto;
+import com.cayena.storeproducts.dto.product.PatchProductRequestDto;
+import com.cayena.storeproducts.dto.product.PatchQuantityStockRequestDto;
 import com.cayena.storeproducts.dto.product.ProductResponseDto;
-import com.cayena.storeproducts.service.product.ProductService;
+import com.cayena.storeproducts.service.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -32,30 +34,30 @@ class ProductController {
         return productService.getAllProducts();
     }
 
-    @GetMapping("/product/{productId}")
+    @GetMapping("/products/{productId}")
     public ProductResponseDto getProductById(@PathVariable Long productId) {
         return productService.getProductById(productId);
     }
 
-    @PostMapping
+    @PostMapping("/products")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void createProduct(@RequestBody ProductRequestDto productRequestDto) {
-        productService.createProduct(productRequestDto);
+    public void createProduct(@RequestBody CreateProductRequestDto createProductRequestDto) {
+        productService.createProduct(createProductRequestDto);
     }
 
-    @PatchMapping("/product/{productId}")
-    public ProductResponseDto patchProduct(@PathVariable Long productId, @RequestBody ProductRequestDto productRequestDto) {
-        return productService.patchProduct(productId, productRequestDto);
+    @PatchMapping("/products/{productId}")
+    public ProductResponseDto patchProduct(@PathVariable Long productId, @RequestBody PatchProductRequestDto patchProductRequestDto) {
+        return productService.patchProduct(productId, patchProductRequestDto);
     }
 
-    @DeleteMapping("/product/{productId}")
+    @DeleteMapping("/products/{productId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteProduct(@PathVariable Long productId) {
         productService.deleteProduct(productId);
     }
 
-    @PatchMapping("/product/{productId}/quantityStock/{quantityStock}")
-    public ProductResponseDto patchQuantityStock(@PathVariable Long productId, @RequestBody ProductRequestDto productRequestDto) {
-        return productService.patchQuantityStock(productId, productRequestDto);
+    @PatchMapping("/products/{productId}/quantityStock")
+    public ProductResponseDto patchQuantityStock(@PathVariable Long productId, @RequestBody PatchQuantityStockRequestDto patchQuantityStockRequestDto) {
+        return productService.patchQuantityStock(productId, patchQuantityStockRequestDto);
     }
 }

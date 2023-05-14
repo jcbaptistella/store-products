@@ -1,6 +1,8 @@
 package com.cayena.storeproducts.mapper;
 
-import com.cayena.storeproducts.dto.product.ProductRequestDto;
+import com.cayena.storeproducts.dto.product.CreateProductRequestDto;
+import com.cayena.storeproducts.dto.product.PatchProductRequestDto;
+import com.cayena.storeproducts.dto.product.PatchQuantityStockRequestDto;
 import com.cayena.storeproducts.dto.product.ProductResponseDto;
 import com.cayena.storeproducts.entity.Product;
 import org.mapstruct.Mapper;
@@ -14,5 +16,8 @@ public interface ProductMapper {
 
     List<ProductResponseDto> entitiesToDtos(List<Product> productList);
 
-    Product dtoToEntity(ProductRequestDto productRequestDto);
+    Product dtoToEntity(CreateProductRequestDto createProductRequestDto);
+    Product dtoToEntity(PatchProductRequestDto patchProductRequestDto);
+    Product dtoToEntity(PatchQuantityStockRequestDto patchQuantityStockRequestDto);
+
 }
