@@ -5,6 +5,7 @@ public class CreateProductRequestDto {
     private String name;
     private Integer quantityInStock;
     private Float unitPrice;
+    private Long supplierId;
 
     public String getName() {
         return name;
@@ -28,5 +29,13 @@ public class CreateProductRequestDto {
 
     public void setUnitPrice(Float unitPrice) {
         this.unitPrice = unitPrice;
+    }
+
+    public Long getSupplierId() {
+        return supplierId;
+    }
+
+    public void setSupplierId(Long supplierId) {
+        this.supplierId = supplierId;
     }
 }

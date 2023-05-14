@@ -5,6 +5,7 @@ public class PatchProductRequestDto {
     private Long id;
     private String name;
     private Float unitPrice;
+    private Long supplierId;
 
     public Long getId() {
         return id;
@@ -28,5 +29,13 @@ public class PatchProductRequestDto {
 
     public void setUnitPrice(Float unitPrice) {
         this.unitPrice = unitPrice;
+    }
+
+    public Long getSupplierId() {
+        return supplierId;
+    }
+
+    public void setSupplierId(Long supplierId) {
+        this.supplierId = supplierId;
     }
 }

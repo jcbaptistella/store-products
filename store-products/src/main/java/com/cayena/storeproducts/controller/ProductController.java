@@ -4,7 +4,13 @@ import com.cayena.storeproducts.dto.product.CreateProductRequestDto;
 import com.cayena.storeproducts.dto.product.PatchProductRequestDto;
 import com.cayena.storeproducts.dto.product.PatchQuantityStockRequestDto;
 import com.cayena.storeproducts.dto.product.ProductResponseDto;
-import com.cayena.storeproducts.service.ProductService;
+import com.cayena.storeproducts.service.create_product_service.CreateProductService;
+import com.cayena.storeproducts.service.delete_product_service.DeleteProductService;
+import com.cayena.storeproducts.service.get_all_product_service.GetAllProductService;
+import com.cayena.storeproducts.service.get_product_service.GetProductService;
+import com.cayena.storeproducts.service.patch_product_quantity_stock_service.PatchProductQuantityStockService;
+import com.cayena.storeproducts.service.patch_product_service.PatchProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,41 +29,51 @@ import java.util.List;
 @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 class ProductController {
 
-    private final ProductService productService;
+    @Autowired
+    private CreateProductService createProductService;
+    @Autowired
+    private DeleteProductService deleteProductService;
+    @Autowired
+    private GetAllProductService getAllProductService;
+    @Autowired
+    private GetProductService getProductService;
+    @Autowired
+    private PatchProductQuantityStockService patchProductQuantityStockService;
+    @Autowired
+    private PatchProductService patchProductService;
 
-    ProductController(ProductService productService) {
-        this.productService = productService;
+    public ProductController() {
     }
 
     @GetMapping("/products")
     public List<ProductResponseDto> getAllProducts() {
-        return productService.getAllProducts();
+        return getAllProductService.getAllProducts();
     }
 
     @GetMapping("/products/{productId}")
     public ProductResponseDto getProductById(@PathVariable Long productId) {
-        return productService.getProductById(productId);
+        return getProductService.getProductById(productId);
     }
 
     @PostMapping("/products")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ResponseStatus(HttpStatus.CREATED)
     public void createProduct(@RequestBody CreateProductRequestDto createProductRequestDto) {
-        productService.createProduct(createProductRequestDto);
+        createProductService.createProduct(createProductRequestDto);
     }
 
     @PatchMapping("/products/{productId}")
     public ProductResponseDto patchProduct(@PathVariable Long productId, @RequestBody PatchProductRequestDto patchProductRequestDto) {
-        return productService.patchProduct(productId, patchProductRequestDto);
+        return patchProductService.patchProduct(productId, patchProductRequestDto);
     }
 
     @DeleteMapping("/products/{productId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteProduct(@PathVariable Long productId) {
-        productService.deleteProduct(productId);
+        deleteProductService.deleteProduct(productId);
     }
 
     @PatchMapping("/products/{productId}/quantityStock")
-    public ProductResponseDto patchQuantityStock(@PathVariable Long productId, @RequestBody PatchQuantityStockRequestDto patchQuantityStockRequestDto) {
-        return productService.patchQuantityStock(productId, patchQuantityStockRequestDto);
+    public ProductResponseDto patchProductQuantityStock(@PathVariable Long productId, @RequestBody PatchQuantityStockRequestDto patchQuantityStockRequestDto) {
+        return patchProductQuantityStockService.patchProductQuantityStock(productId, patchQuantityStockRequestDto);
     }
 }
