@@ -26,7 +26,6 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class CreateProductServiceUTest {
-    @Autowired
     private CreateProductService createProductService;
     @Mock
     private ProductRepository productRepository;

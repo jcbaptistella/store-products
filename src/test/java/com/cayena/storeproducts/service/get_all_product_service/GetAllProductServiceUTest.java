@@ -25,9 +25,8 @@ import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class GetAllProductServiceUTest {
+class GetAllProductServiceUTest {
 
-    @Autowired
     private GetAllProductService getAllProductService;
 
     @Mock

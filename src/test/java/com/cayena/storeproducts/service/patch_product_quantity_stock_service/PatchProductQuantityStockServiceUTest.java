@@ -30,7 +30,6 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class PatchProductQuantityStockServiceUTest {
 
-    @Autowired
     private PatchProductQuantityStockService patchProductQuantityStockService;
     @Mock
     private ProductRepository productRepository;

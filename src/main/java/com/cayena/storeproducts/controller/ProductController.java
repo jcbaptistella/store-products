@@ -11,7 +11,6 @@ import com.cayena.storeproducts.service.get_all_product_service.GetAllProductSer
 import com.cayena.storeproducts.service.get_product_service.GetProductService;
 import com.cayena.storeproducts.service.patch_product_quantity_stock_service.PatchProductQuantityStockService;
 import com.cayena.storeproducts.service.patch_product_service.PatchProductService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -30,20 +29,25 @@ import java.util.List;
 @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 class ProductController {
 
-    @Autowired
-    private CreateProductService createProductService;
-    @Autowired
-    private DeleteProductService deleteProductService;
-    @Autowired
-    private GetAllProductService getAllProductService;
-    @Autowired
-    private GetProductService getProductService;
-    @Autowired
-    private PatchProductQuantityStockService patchProductQuantityStockService;
-    @Autowired
-    private PatchProductService patchProductService;
+    private final CreateProductService createProductService;
+    private final DeleteProductService deleteProductService;
+    private final  GetAllProductService getAllProductService;
+    private final  GetProductService getProductService;
+    private final PatchProductQuantityStockService patchProductQuantityStockService;
+    private final PatchProductService patchProductService;
 
-    public ProductController() {
+    public ProductController(CreateProductService createProductService,
+                             DeleteProductService deleteProductService,
+                             GetAllProductService getAllProductService,
+                             GetProductService getProductService,
+                             PatchProductQuantityStockService patchProductQuantityStockService,
+                             PatchProductService patchProductService) {
+        this.createProductService = createProductService;
+        this.deleteProductService = deleteProductService;
+        this.getAllProductService = getAllProductService;
+        this.getProductService = getProductService;
+        this.patchProductQuantityStockService = patchProductQuantityStockService;
+        this.patchProductService = patchProductService;
     }
 
     @GetMapping("/products")

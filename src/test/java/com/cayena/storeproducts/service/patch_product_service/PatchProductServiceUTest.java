@@ -1,9 +1,6 @@
 package com.cayena.storeproducts.service.patch_product_service;
 
-import com.cayena.storeproducts.dto.enums.QuantityStockActionEnum;
-import com.cayena.storeproducts.dto.product.CreateProductRequestDto;
 import com.cayena.storeproducts.dto.product.PatchProductRequestDto;
-import com.cayena.storeproducts.dto.product.PatchQuantityStockRequestDto;
 import com.cayena.storeproducts.dto.product.ProductResponseDto;
 import com.cayena.storeproducts.dto.supplier.SupplierResponseDto;
 import com.cayena.storeproducts.entity.Product;
@@ -19,7 +16,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mapstruct.factory.Mappers;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -32,7 +28,6 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class PatchProductServiceUTest {
-    @Autowired
     private PatchProductService patchProductService;
     @Mock
     private ProductRepository productRepository;
