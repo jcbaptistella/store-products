@@ -120,7 +120,7 @@ class PatchProductServiceUTest {
         var productId = 1L;
 
         var patchProductRequestDto = new PatchProductRequestDto();
-        patchProductRequestDto.setId(2L);
+        patchProductRequestDto.setId(1L);
         patchProductRequestDto.setUnitPrice(1.50F);
         patchProductRequestDto.setSupplierId(1L);
 

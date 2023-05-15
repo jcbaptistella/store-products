@@ -28,6 +28,7 @@
 # Uso subindo aplicação
     1 - Executar o comando: mvn clean install
     2 - Executar o comando: java -jar .\target\store-products-0.0.1-SNAPSHOT.jar
+    3 - Acessar o banco de dados e adicionar os suppliers. Na raiz do projeto tem um documento chamdo init.sql que o script está lá.
     3 - Para facilitar o uso da aplicação, deixamos uma documentação do postman no diretório raiz da aplicação. Basta importar a coleção no postman e utiliza-la.
 
 # Autor
