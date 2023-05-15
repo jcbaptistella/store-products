@@ -1,0 +1,1105 @@
+{
+	"info": {
+		"_postman_id": "0e270f1e-3091-4db5-b80a-eda1330fe6e0",
+		"name": "Api Documentation - Store Products",
+		"description": "Api Documentation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "{productId}",
+					"item": [
+						{
+							"name": "getProductById",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/products/:productId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										":productId"
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "46316331",
+											"description": "(Required) productId"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/products/:productId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												":productId"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "46316331",
+													"description": "(Required) productId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"dateOfCreation\": \"2001-11-11T04:53:44.064Z\",\n  \"dateOfLastUpdate\": \"1965-10-10T07:50:23.334Z\",\n  \"id\": -6886365,\n  \"name\": \"minim ad\",\n  \"quantityInStock\": 76648487,\n  \"supplierResponseDto\": {\n    \"dateOfCreation\": \"1974-02-28T21:48:58.643Z\",\n    \"dateOfLastUpdate\": \"1977-12-07T12:36:51.343Z\",\n    \"id\": 88220109,\n    \"name\": \"ut dolor mollit\"\n  },\n  \"unitPrice\": -86202390.09680018\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/products/:productId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												":productId"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "46316331",
+													"description": "(Required) productId"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/products/:productId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												":productId"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "46316331",
+													"description": "(Required) productId"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/products/:productId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												":productId"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "46316331",
+													"description": "(Required) productId"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "deleteProduct",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products/:productId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										":productId"
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "46316331",
+											"description": "(Required) productId"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "No Content",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/products/:productId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												":productId"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "46316331",
+													"description": "(Required) productId"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/products/:productId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												":productId"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "46316331",
+													"description": "(Required) productId"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/products/:productId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												":productId"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "46316331",
+													"description": "(Required) productId"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "patchProduct",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": -70640739,\n  \"name\": \"amet sint\",\n  \"supplierId\": -54959754,\n  \"unitPrice\": -1225765.172241956\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/products/:productId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										":productId"
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "46316331",
+											"description": "(Required) productId"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -70640739,\n  \"name\": \"amet sint\",\n  \"supplierId\": -54959754,\n  \"unitPrice\": -1225765.172241956\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products/:productId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												":productId"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "46316331",
+													"description": "(Required) productId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"dateOfCreation\": \"2001-11-11T04:53:44.064Z\",\n  \"dateOfLastUpdate\": \"1965-10-10T07:50:23.334Z\",\n  \"id\": -6886365,\n  \"name\": \"minim ad\",\n  \"quantityInStock\": 76648487,\n  \"supplierResponseDto\": {\n    \"dateOfCreation\": \"1974-02-28T21:48:58.643Z\",\n    \"dateOfLastUpdate\": \"1977-12-07T12:36:51.343Z\",\n    \"id\": 88220109,\n    \"name\": \"ut dolor mollit\"\n  },\n  \"unitPrice\": -86202390.09680018\n}"
+								},
+								{
+									"name": "No Content",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -70640739,\n  \"name\": \"amet sint\",\n  \"supplierId\": -54959754,\n  \"unitPrice\": -1225765.172241956\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products/:productId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												":productId"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "46316331",
+													"description": "(Required) productId"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -70640739,\n  \"name\": \"amet sint\",\n  \"supplierId\": -54959754,\n  \"unitPrice\": -1225765.172241956\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products/:productId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												":productId"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "46316331",
+													"description": "(Required) productId"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -70640739,\n  \"name\": \"amet sint\",\n  \"supplierId\": -54959754,\n  \"unitPrice\": -1225765.172241956\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products/:productId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												":productId"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "46316331",
+													"description": "(Required) productId"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "patchProductQuantityStock",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": -84542400,\n  \"quantityInStock\": -20133999,\n  \"quantityStockAction\": \"INCREASE\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/products/:productId/quantityStock",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										":productId",
+										"quantityStock"
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "46316331",
+											"description": "(Required) productId"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -84542400,\n  \"quantityInStock\": -20133999,\n  \"quantityStockAction\": \"INCREASE\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products/:productId/quantityStock",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												":productId",
+												"quantityStock"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "46316331",
+													"description": "(Required) productId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"dateOfCreation\": \"2001-11-11T04:53:44.064Z\",\n  \"dateOfLastUpdate\": \"1965-10-10T07:50:23.334Z\",\n  \"id\": -6886365,\n  \"name\": \"minim ad\",\n  \"quantityInStock\": 76648487,\n  \"supplierResponseDto\": {\n    \"dateOfCreation\": \"1974-02-28T21:48:58.643Z\",\n    \"dateOfLastUpdate\": \"1977-12-07T12:36:51.343Z\",\n    \"id\": 88220109,\n    \"name\": \"ut dolor mollit\"\n  },\n  \"unitPrice\": -86202390.09680018\n}"
+								},
+								{
+									"name": "No Content",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -84542400,\n  \"quantityInStock\": -20133999,\n  \"quantityStockAction\": \"INCREASE\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products/:productId/quantityStock",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												":productId",
+												"quantityStock"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "46316331",
+													"description": "(Required) productId"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -84542400,\n  \"quantityInStock\": -20133999,\n  \"quantityStockAction\": \"INCREASE\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products/:productId/quantityStock",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												":productId",
+												"quantityStock"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "46316331",
+													"description": "(Required) productId"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -84542400,\n  \"quantityInStock\": -20133999,\n  \"quantityStockAction\": \"INCREASE\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products/:productId/quantityStock",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												":productId",
+												"quantityStock"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "46316331",
+													"description": "(Required) productId"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "getAllProducts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"dateOfCreation\": \"1981-10-11T11:12:13.277Z\",\n    \"dateOfLastUpdate\": \"1963-08-13T04:22:14.624Z\",\n    \"id\": 15665386,\n    \"name\": \"dolore pariatur occaecat\",\n    \"quantityInStock\": -13902425,\n    \"supplierResponseDto\": {\n      \"dateOfCreation\": \"1948-03-04T18:40:39.536Z\",\n      \"dateOfLastUpdate\": \"1967-05-30T15:44:42.377Z\",\n      \"id\": 38203504,\n      \"name\": \"enim\"\n    },\n    \"unitPrice\": 89194491.9582277\n  },\n  {\n    \"dateOfCreation\": \"1972-03-03T20:14:48.974Z\",\n    \"dateOfLastUpdate\": \"1960-11-08T13:16:52.836Z\",\n    \"id\": -38141882,\n    \"name\": \"voluptate dolore dolore\",\n    \"quantityInStock\": -15043464,\n    \"supplierResponseDto\": {\n      \"dateOfCreation\": \"1995-06-23T12:57:38.033Z\",\n      \"dateOfLastUpdate\": \"1968-05-06T18:09:17.474Z\",\n      \"id\": -19588831,\n      \"name\": \"nisi cillum in irure\"\n    },\n    \"unitPrice\": 31225653.12868169\n  }\n]"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "createProduct",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"dolor sint\",\n  \"quantityInStock\": 8488469,\n  \"supplierId\": -73559613,\n  \"unitPrice\": 13454616.603201285\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"dolor sint\",\n  \"quantityInStock\": 8488469,\n  \"supplierId\": -73559613,\n  \"unitPrice\": 13454616.603201285\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 12449387\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"dolor sint\",\n  \"quantityInStock\": 8488469,\n  \"supplierId\": -73559613,\n  \"unitPrice\": 13454616.603201285\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"dolor sint\",\n  \"quantityInStock\": 8488469,\n  \"supplierId\": -73559613,\n  \"unitPrice\": 13454616.603201285\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"dolor sint\",\n  \"quantityInStock\": 8488469,\n  \"supplierId\": -73559613,\n  \"unitPrice\": 13454616.603201285\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "localhost:8080/api",
+			"type": "string"
+		}
+	]
+}

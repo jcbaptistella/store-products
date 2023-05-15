@@ -19,11 +19,16 @@
     - Maven
     - Mysql
     
+# Uso via docker
+    1 - Executar o comando: docker-compose up -d
+    2 - Se quiser verificar o banco de dados via web, acessar: http://localhost:8081/?server=db&username=root&db=cayena
+    3 - Usario: root / Senha: mysql
+    4 - Para facilitar o uso da aplicação, deixamos uma documentação do postman no diretório raiz da aplicação. Basta importar a coleção no postman e utiliza-la.
 
-# Uso
+# Uso subindo aplicação
     1 - Executar o comando: mvn clean install
     2 - Executar o comando: java -jar .\target\store-products-0.0.1-SNAPSHOT.jar
-    4 - Para facilitar o uso da aplicação, deixamos uma documentação do postman no diretório raiz da aplicação. Basta importar a coleção no postman e utiliza-la.
+    3 - Para facilitar o uso da aplicação, deixamos uma documentação do postman no diretório raiz da aplicação. Basta importar a coleção no postman e utiliza-la.
 
 # Autor
     - Julio Baptistella
