@@ -1,23 +1,14 @@
-# Pegando imagem do dockerhub
-FROM maven:3.8.4-openjdk-11 AS builder
+# Use a imagem base do OpenJDK 11
+FROM adoptopenjdk:11-jre-hotspot
 
-# Definindo a pasta para receber o codigo
-ENV APP_HOME=/app/src
+# Copie o arquivo JAR da aplicação para dentro do contêiner
+COPY target/store-products-0.0.1-SNAPSHOT.jar /app/app.jar
 
-RUN mkdir -p $APP_HOME
-WORKDIR $APP_HOME
+# Defina o diretório de trabalho como o diretório raiz da aplicação
+WORKDIR /app
 
-# Copiando codigo fonte para pasta criada
-COPY . $APP_HOME
+# Exponha a porta que a aplicação está escutando
+EXPOSE 8080
 
-# Limpando a pasta de destino
-RUN rm -rf target
-
-# Buildando aplicação
-RUN mvn clean install
-
-FROM openjdk:11
-
-COPY --from=builder /app/src/target/store-products-1.0.0-SNAPSHOT.jar /app/store-products.jar
-
-ENTRYPOINT ["java", "-jar", "store-products.jar"]
+# Defina o comando de execução para iniciar a aplicação
+CMD ["java", "-jar", "app.jar"]
